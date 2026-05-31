@@ -1,0 +1,2901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Wordly — A magical world of stories, poems, and phonics for young readers. Spark a love of reading today!">
+<title>Wordly — Magical Learning for Kids</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231e1060'/%3E%3Cstop offset='1' stop-color='%236B4DD6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23bg)'/%3E%3C!-- open book pages --%3E%3Cpath d='M10 20 Q10 18 12 18 L30 18 L30 46 Q20 44 10 46 Z' fill='%23fff' opacity='0.95'/%3E%3Cpath d='M54 20 Q54 18 52 18 L34 18 L34 46 Q44 44 54 46 Z' fill='%23fff' opacity='0.85'/%3E%3Cline x1='32' y1='18' x2='32' y2='46' stroke='%236B4DD6' stroke-width='2'/%3E%3C!-- star --%3E%3Cpolygon points='32,7 33.8,12.5 39.5,12.5 35,15.8 36.8,21.3 32,18 27.2,21.3 29,15.8 24.5,12.5 30.2,12.5' fill='%23FFD166'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231e1060'/%3E%3Cstop offset='1' stop-color='%236B4DD6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23bg)'/%3E%3Cpath d='M10 20 Q10 18 12 18 L30 18 L30 46 Q20 44 10 46 Z' fill='%23fff' opacity='0.95'/%3E%3Cpath d='M54 20 Q54 18 52 18 L34 18 L34 46 Q44 44 54 46 Z' fill='%23fff' opacity='0.85'/%3E%3Cline x1='32' y1='18' x2='32' y2='46' stroke='%236B4DD6' stroke-width='2'/%3E%3Cpolygon points='32,7 33.8,12.5 39.5,12.5 35,15.8 36.8,21.3 32,18 27.2,21.3 29,15.8 24.5,12.5 30.2,12.5' fill='%23FFD166'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   WORDLY — Design System
+   Aesthetic: "Enchanted Storybook" — warm, illustrated,
+   joyful. Deep indigo sky + golden warmth + playful coral.
+   ============================================================ */
+
+:root {
+  /* Primary Palette */
+  --ink:         #1A1035;   /* deep indigo-black for text */
+  --sky:         #2D1B8E;   /* rich indigo */
+  --sky-mid:     #4A2FC0;
+  --sky-light:   #6B4DD6;
+  --gold:        #F5A623;   /* warm amber/gold */
+  --gold-light:  #FFD166;   /* soft yellow */
+  --coral:       #FF6B6B;   /* energetic coral */
+  --mint:        #06D6A0;   /* fresh teal-green */
+  --rose:        #F78FB3;   /* soft pink */
+  --cloud:       #F0EEFF;   /* near-white with purple tint */
+  --parchment:   #FFF8E7;   /* warm parchment */
+
+  /* Semantic */
+  --bg:          #FDFBFF;
+  --surface:     #FFFFFF;
+  --surface-2:   #F4F0FF;
+  --border:      #E8E0FF;
+  --text-main:   #1A1035;
+  --text-body:   #3D3266;
+  --text-muted:  #7B6FA8;
+
+  /* Gradients */
+  --grad-sky:    linear-gradient(135deg, #2D1B8E 0%, #6B4DD6 50%, #9B7DFF 100%);
+  --grad-gold:   linear-gradient(135deg, #F5A623 0%, #FFD166 100%);
+  --grad-coral:  linear-gradient(135deg, #FF6B6B 0%, #FF9A8B 100%);
+  --grad-mint:   linear-gradient(135deg, #06D6A0 0%, #68EFC8 100%);
+  --grad-rainbow:linear-gradient(135deg,#FF6B6B,#F5A623,#FFD166,#06D6A0,#4A2FC0,#9B7DFF);
+  --grad-card:   linear-gradient(160deg, #FFFFFF 0%, #F4F0FF 100%);
+
+  /* Shadows */
+  --shadow-sm:   0 2px 8px rgba(45,27,142,.08);
+  --shadow-md:   0 6px 24px rgba(45,27,142,.12);
+  --shadow-lg:   0 12px 48px rgba(45,27,142,.18);
+  --shadow-xl:   0 24px 72px rgba(45,27,142,.22);
+  --shadow-glow: 0 0 40px rgba(107,77,214,.35);
+
+  /* Radius */
+  --r-sm: 12px;
+  --r-md: 20px;
+  --r-lg: 32px;
+  --r-xl: 48px;
+  --r-full: 999px;
+
+  /* Typography */
+  --font-display: 'Fredoka One', cursive;
+  --font-body:    'Nunito', sans-serif;
+  --font-accent:  'Baloo 2', cursive;
+
+  /* Transitions */
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast:    0.2s;
+  --dur-med:     0.35s;
+  --dur-slow:    0.55s;
+}
+
+/* ---- Dark Mode ---- */
+[data-theme="dark"] {
+  --bg:          #0F0A2B;
+  --surface:     #1A1245;
+  --surface-2:   #221860;
+  --border:      #2D2070;
+  --text-main:   #F0EEFF;
+  --text-body:   #C4B8EE;
+  --text-muted:  #8A7DB8;
+  --cloud:       #1A1245;
+  --parchment:   #1E1650;
+}
+
+/* ============================================================
+   BASE RESET & GLOBAL
+   ============================================================ */
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  transition: background var(--dur-med) var(--ease-out),
+              color var(--dur-med) var(--ease-out);
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36'><text y='28' font-size='26'>⭐</text></svg>") 12 12, auto;
+}
+
+img { max-width:100%; display:block; }
+button { font-family: var(--font-body); cursor: pointer; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ============================================================
+   MAGICAL BACKGROUND — subtle star field
+   ============================================================ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(107,77,214,.06) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(245,166,35,.05) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(6,214,160,.04) 0%, transparent 60%);
+}
+
+/* Floating stars pattern */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 10% 15%, rgba(245,166,35,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 25% 45%, rgba(107,77,214,.4) 0%, transparent 100%),
+    radial-gradient(2px 2px at 40% 10%, rgba(255,107,107,.3) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 60% 30%, rgba(245,166,35,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 75% 60%, rgba(107,77,214,.4) 0%, transparent 100%),
+    radial-gradient(2px 2px at 90% 20%, rgba(6,214,160,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 15% 80%, rgba(255,107,107,.3) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 85% 85%, rgba(245,166,35,.4) 0%, transparent 100%);
+}
+
+/* ============================================================
+   READING PROGRESS BAR
+   ============================================================ */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 4px;
+  width: 0%;
+  background: var(--grad-gold);
+  z-index: 9999;
+  border-radius: 0 var(--r-full) var(--r-full) 0;
+  transition: width .1s linear;
+  box-shadow: 0 0 12px rgba(245,166,35,.7);
+}
+
+/* ============================================================
+   PRELOADER
+   ============================================================ */
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: var(--ink);
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  transition: opacity .6s var(--ease-out), visibility .6s;
+}
+#preloader.done { opacity: 0; visibility: hidden; }
+
+.preloader-logo {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  color: white;
+  letter-spacing: 2px;
+  animation: pulseScale 1.2s ease-in-out infinite;
+}
+.preloader-logo span { color: var(--gold); }
+
+.preloader-dots { display: flex; gap: .6rem; }
+.preloader-dots span {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: bounce-dot .8s ease-in-out infinite;
+}
+.preloader-dots span:nth-child(2) { background: var(--coral); animation-delay: .15s; }
+.preloader-dots span:nth-child(3) { background: var(--mint);  animation-delay: .3s; }
+
+@keyframes bounce-dot {
+  0%,80%,100% { transform: translateY(0); opacity:.5; }
+  40%         { transform: translateY(-12px); opacity:1; }
+}
+@keyframes pulseScale {
+  0%,100% { transform: scale(1); }
+  50%     { transform: scale(1.05); }
+}
+
+/* ============================================================
+   HEADER / NAV
+   ============================================================ */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  padding: 0 max(1rem, 3vw);
+  pointer-events: none;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto;
+  height: 62px;
+  padding: 0 .6rem 0 .6rem;
+  border-radius: var(--r-full);
+  background: rgba(255,255,255,.12);
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1.5px solid rgba(255,255,255,.22);
+  box-shadow: 0 8px 32px rgba(20,10,60,.18), inset 0 1px 0 rgba(255,255,255,.25);
+  transition: all var(--dur-med) var(--ease-out);
+  pointer-events: all;
+}
+
+header.scrolled .header-inner {
+  background: rgba(255,255,255,.82);
+  border-color: rgba(255,255,255,.5);
+  box-shadow: 0 8px 40px rgba(20,10,60,.22), inset 0 1px 0 rgba(255,255,255,.6);
+}
+[data-theme="dark"] .header-inner {
+  background: rgba(15,10,43,.55);
+  border-color: rgba(107,77,214,.3);
+}
+[data-theme="dark"] header.scrolled .header-inner {
+  background: rgba(15,10,43,.88);
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease-bounce);
+  padding: .2rem .5rem .2rem .2rem;
+  border-radius: var(--r-full);
+  flex-shrink: 0;
+}
+.logo:hover { transform: scale(1.06) rotate(-2deg); }
+
+.logo-icon {
+  width: 42px; height: 42px;
+  background: linear-gradient(135deg,#F5A623,#FF6B6B);
+  border-radius: var(--r-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 0 4px 14px rgba(245,166,35,.45), inset 0 1px 0 rgba(255,255,255,.3);
+  flex-shrink: 0;
+  position: relative;
+}
+.logo-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,.25) 0%, transparent 60%);
+}
+.logo-name {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,.75) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: .5px;
+  line-height: 1;
+}
+header.scrolled .logo-name {
+  background: linear-gradient(135deg,#4A2FC0,#9B7DFF);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.logo-name span {
+  background: linear-gradient(135deg,#FFD166,#F5A623);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+header.scrolled .logo-name span {
+  background: linear-gradient(135deg,#FF6B6B,#F5A623);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+[data-theme="dark"] .logo-name {
+  background: linear-gradient(135deg,#E8D5FF,#C4B8EE);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: .2rem;
+  background: rgba(255,255,255,.1);
+  border-radius: var(--r-full);
+  padding: .25rem;
+  border: 1px solid rgba(255,255,255,.15);
+}
+.nav-links a {
+  display: flex; align-items: center; gap: .4rem;
+  padding: .45rem 1.05rem;
+  border-radius: var(--r-full);
+  font-weight: 800;
+  font-size: .88rem;
+  color: rgba(255,255,255,.85);
+  transition: all var(--dur-fast) var(--ease-bounce);
+  position: relative;
+  white-space: nowrap;
+  letter-spacing: .2px;
+}
+header.scrolled .nav-links a { color: var(--text-body); }
+header.scrolled .nav-links { background: rgba(0,0,0,.04); border-color: rgba(0,0,0,.06); }
+
+.nav-links a:hover { background: rgba(255,255,255,.18); color: white; transform: translateY(-2px); }
+header.scrolled .nav-links a:hover { background: rgba(74,47,192,.08); color: var(--text-main); }
+
+.nav-links a.active {
+  color: white;
+  transform: translateY(-1px);
+}
+.nav-links a.active .nav-tab-bg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Colorful active tab backgrounds */
+.nav-tab-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-full);
+  opacity: 0;
+  transform: scale(.85);
+  transition: all var(--dur-fast) var(--ease-bounce);
+  z-index: -1;
+  box-shadow: 0 4px 14px rgba(0,0,0,.2);
+}
+a[data-view="home"]    .nav-tab-bg { background: linear-gradient(135deg,#4A2FC0,#7B5EE8); }
+a[data-view="stories"] .nav-tab-bg { background: linear-gradient(135deg,#0a9e78,#06D6A0); }
+a[data-view="poems"]   .nav-tab-bg { background: linear-gradient(135deg,#e04040,#FF8080); }
+a[data-view="phonics"] .nav-tab-bg { background: linear-gradient(135deg,#c47a00,#F5A623); }
+
+.nav-icon {
+  font-size: 1rem;
+  display: inline-block;
+  transition: transform var(--dur-fast) var(--ease-bounce);
+}
+.nav-links a:hover .nav-icon { transform: scale(1.25) rotate(-8deg); }
+.nav-links a.active .nav-icon { transform: scale(1.15); }
+
+/* Nav right controls */
+.nav-controls { display: flex; align-items: center; gap: .4rem; flex-shrink: 0; }
+
+.icon-btn {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,.15);
+  color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.15rem;
+  transition: all var(--dur-fast) var(--ease-bounce);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.2);
+}
+header.scrolled .icon-btn { background: var(--surface-2); color: var(--text-body); border-color: var(--border); }
+.icon-btn:hover { transform: scale(1.15) rotate(12deg); background: linear-gradient(135deg,#F5A623,#FF6B6B); color: white; border-color: transparent; }
+
+/* Mobile hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px; padding: .5rem;
+  border: none; background: rgba(255,255,255,.15);
+  border-radius: var(--r-md);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.2);
+}
+.hamburger span {
+  display: block; width: 20px; height: 2px;
+  background: white;
+  border-radius: var(--r-full);
+  transition: all var(--dur-fast) var(--ease-out);
+}
+header.scrolled .hamburger { background: var(--surface-2); border-color: var(--border); }
+header.scrolled .hamburger span { background: var(--text-body); }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile nav drawer */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 72px; left: 0; right: 0;
+  background: var(--surface);
+  padding: 1rem 1.5rem 1.5rem;
+  box-shadow: var(--shadow-lg);
+  z-index: 999;
+  border-bottom: 3px solid var(--border);
+  transform: translateY(-110%);
+  transition: transform var(--dur-med) var(--ease-out);
+}
+.mobile-nav.show { transform: translateY(0); }
+.mobile-nav a {
+  display: flex; align-items: center; gap: .7rem;
+  padding: .8rem 1rem;
+  border-radius: var(--r-md);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-body);
+  transition: all var(--dur-fast) var(--ease-out);
+  margin-bottom: .3rem;
+}
+.mobile-nav a:hover,
+.mobile-nav a.active {
+  background: var(--surface-2);
+  color: var(--sky-mid);
+}
+
+/* ============================================================
+   VIEW SYSTEM
+   ============================================================ */
+main { position: relative; z-index: 1; }
+.view { display: none; }
+.view.active {
+  display: block;
+  animation: viewIn var(--dur-slow) var(--ease-out);
+}
+@keyframes viewIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   HOME — HERO
+   ============================================================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 7rem max(1.5rem, 5vw) 120px;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Sky gradient background */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--grad-sky);
+  z-index: 0;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400'%3E%3Cellipse cx='400' cy='420' rx='520' ry='140' fill='rgba(255,255,255,0.06)'/%3E%3Cellipse cx='100' cy='350' rx='200' ry='80' fill='rgba(255,255,255,0.04)'/%3E%3Cellipse cx='700' cy='380' rx='180' ry='70' fill='rgba(255,255,255,0.04)'/%3E%3C/svg%3E") no-repeat bottom center / cover;
+}
+
+/* Wavy bottom clip */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0; right: 0;
+  height: 120px;
+  background: var(--bg);
+  clip-path: ellipse(55% 100% at 50% 100%);
+  z-index: 2;
+}
+
+/* Floating shapes */
+.hero-shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: .12;
+}
+.shape-1 { width:300px; height:300px; background:var(--gold);     top:-80px; left:-60px;  animation: drift 12s ease-in-out infinite; }
+.shape-2 { width:200px; height:200px; background:var(--coral);    bottom:60px; right:-40px; animation: drift 9s ease-in-out infinite reverse; }
+.shape-3 { width:150px; height:150px; background:var(--mint);     top:40%;  left:10%;    animation: drift 14s ease-in-out infinite 2s; }
+.shape-4 { width:100px; height:100px; background:var(--gold-light); bottom:20%; right:15%; animation: drift 10s ease-in-out infinite 4s; }
+
+@keyframes drift {
+  0%,100% { transform: translate(0,0) scale(1) rotate(0deg); }
+  33%      { transform: translate(20px,-30px) scale(1.05) rotate(5deg); }
+  66%      { transform: translate(-15px,20px) scale(.97) rotate(-3deg); }
+}
+
+/* Floating emojis */
+.float-emoji {
+  position: absolute;
+  font-size: 2.5rem;
+  animation: floatEmoji linear infinite;
+  opacity: .7;
+  z-index: 1;
+  pointer-events: none;
+}
+.float-emoji:nth-child(1)  { top:12%; left:6%;   animation-duration:7s;  animation-delay:0s;   }
+.float-emoji:nth-child(2)  { top:25%; right:8%;  animation-duration:9s;  animation-delay:1.5s; }
+.float-emoji:nth-child(3)  { top:65%; left:4%;   animation-duration:8s;  animation-delay:3s;   }
+.float-emoji:nth-child(4)  { top:55%; right:5%;  animation-duration:11s; animation-delay:0.8s; }
+.float-emoji:nth-child(5)  { top:80%; left:12%;  animation-duration:6s;  animation-delay:2s;   }
+.float-emoji:nth-child(6)  { top:15%; left:35%;  animation-duration:10s; animation-delay:4s;   }
+@keyframes floatEmoji {
+  0%,100% { transform: translateY(0) rotate(-5deg); }
+  50%     { transform: translateY(-18px) rotate(5deg); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* Badge */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: rgba(255,255,255,.18);
+  border: 1.5px solid rgba(255,255,255,.3);
+  backdrop-filter: blur(10px);
+  border-radius: var(--r-full);
+  padding: .4rem 1rem;
+  font-size: .85rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.5rem;
+  letter-spacing: .5px;
+}
+.hero-badge-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%,100% { transform: scale(1); opacity:1; }
+  50%      { transform: scale(1.4); opacity:.7; }
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  color: white;
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 4px 24px rgba(0,0,0,.2);
+}
+.hero-title .highlight {
+  position: relative;
+  display: inline-block;
+  color: var(--gold-light);
+}
+.hero-title .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 4px; left: -4px; right: -4px;
+  height: 8px;
+  background: rgba(255,209,102,.25);
+  border-radius: var(--r-full);
+  z-index: -1;
+}
+
+.hero-sub {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: rgba(255,255,255,.88);
+  max-width: 580px;
+  margin: 0 auto 2.5rem;
+  font-weight: 500;
+  line-height: 1.65;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+/* Stats strip */
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  position: relative;
+  z-index: 3;
+  margin-top: .5rem;
+}
+.stat-pill {
+  background: rgba(255,255,255,.15);
+  border: 1.5px solid rgba(255,255,255,.25);
+  backdrop-filter: blur(10px);
+  border-radius: var(--r-full);
+  padding: .5rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  color: white;
+  font-weight: 700;
+  font-size: .9rem;
+}
+.stat-emoji { font-size: 1.1rem; }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .85rem 2rem;
+  border-radius: var(--r-full);
+  font-weight: 800;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  border: none;
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease-bounce);
+  position: relative;
+  overflow: hidden;
+}
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0);
+  transition: background var(--dur-fast);
+}
+.btn:hover::after { background: rgba(255,255,255,.08); }
+.btn:hover { transform: translateY(-3px) scale(1.03); }
+.btn:active { transform: translateY(0) scale(.99); }
+
+.btn-primary {
+  background: white;
+  color: var(--sky);
+  box-shadow: 0 6px 24px rgba(0,0,0,.2);
+}
+.btn-primary:hover { box-shadow: 0 10px 32px rgba(0,0,0,.28); }
+
+.btn-outline {
+  background: rgba(255,255,255,.12);
+  color: white;
+  border: 2px solid rgba(255,255,255,.5);
+  backdrop-filter: blur(8px);
+}
+.btn-outline:hover { background: rgba(255,255,255,.22); }
+
+.btn-sky {
+  background: var(--grad-sky);
+  color: white;
+  box-shadow: 0 6px 20px rgba(74,47,192,.4);
+}
+.btn-sky:hover { box-shadow: 0 10px 28px rgba(74,47,192,.55); }
+
+.btn-gold {
+  background: var(--grad-gold);
+  color: var(--ink);
+  box-shadow: 0 6px 20px rgba(245,166,35,.4);
+}
+.btn-gold:hover { box-shadow: 0 10px 28px rgba(245,166,35,.55); }
+
+.btn-coral {
+  background: var(--grad-coral);
+  color: white;
+  box-shadow: 0 6px 20px rgba(255,107,107,.4);
+}
+.btn-sm { padding: .55rem 1.2rem; font-size: .88rem; }
+
+/* ============================================================
+   SECTION WRAPPER
+   ============================================================ */
+.section {
+  padding: 5rem max(1.5rem, 5vw);
+}
+.section-inner {
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.section-eyebrow {
+  display: inline-block;
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--sky-mid);
+  background: var(--surface-2);
+  padding: .3rem .9rem;
+  border-radius: var(--r-full);
+  margin-bottom: .8rem;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--text-main);
+  margin-bottom: .7rem;
+  line-height: 1.15;
+}
+.section-title span { color: var(--coral); }
+.section-sub {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Decorative underline */
+.title-underline {
+  display: block;
+  width: 60px; height: 5px;
+  border-radius: var(--r-full);
+  background: var(--grad-gold);
+  margin: .8rem auto 0;
+}
+
+/* ============================================================
+   FEATURE CARDS (Home page)
+   ============================================================ */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature-card {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 2rem 1.8rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--dur-med) var(--ease-bounce);
+  position: relative;
+  overflow: hidden;
+}
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+  transition: height var(--dur-fast) var(--ease-out);
+}
+.feature-card.stories::before  { background: var(--grad-coral); }
+.feature-card.poems::before    { background: var(--grad-gold); }
+.feature-card.phonics::before  { background: var(--grad-mint); }
+.feature-card:hover { transform: translateY(-8px) scale(1.01); box-shadow: var(--shadow-lg); border-color: transparent; }
+.feature-card:hover::before { height: 6px; }
+
+.feature-icon {
+  width: 72px; height: 72px;
+  border-radius: var(--r-lg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 1.2rem;
+  transition: transform var(--dur-fast) var(--ease-bounce);
+}
+.feature-card:hover .feature-icon { transform: scale(1.15) rotate(-5deg); }
+.feature-card.stories .feature-icon  { background: rgba(255,107,107,.12); }
+.feature-card.poems .feature-icon    { background: rgba(245,166,35,.12); }
+.feature-card.phonics .feature-icon  { background: rgba(6,214,160,.12); }
+
+.feature-title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  color: var(--text-main);
+  margin-bottom: .6rem;
+}
+.feature-desc {
+  font-size: .95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+.feature-count {
+  font-size: .8rem;
+  font-weight: 800;
+  color: var(--sky-mid);
+  letter-spacing: .5px;
+}
+
+/* ============================================================
+   WHY WORDLY — Home section
+   ============================================================ */
+.why-section {
+  background: var(--surface-2);
+  border-radius: var(--r-xl);
+  padding: 3.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin: 0 max(1.5rem, 4vw) 4rem;
+  max-width: 1260px;
+  margin-left: auto; margin-right: auto;
+}
+.why-text .why-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: var(--text-main);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.why-text .why-title span { color: var(--sky-mid); }
+.why-desc {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.benefit-list { display: flex; flex-direction: column; gap: .8rem; }
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  font-weight: 600;
+  color: var(--text-body);
+  font-size: .95rem;
+}
+.benefit-dot {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .9rem;
+  flex-shrink: 0;
+}
+
+.why-visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.why-card {
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  padding: 1.5rem 1.2rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-fast) var(--ease-bounce);
+}
+.why-card:hover { transform: translateY(-5px); }
+.why-card:nth-child(2) { margin-top: 1.5rem; }
+.why-card:nth-child(4) { margin-top: 1.5rem; }
+.why-card-emoji { font-size: 2rem; margin-bottom: .5rem; }
+.why-card-label { font-size: .9rem; font-weight: 700; color: var(--text-body); }
+
+/* ============================================================
+   SEARCH BAR
+   ============================================================ */
+.search-wrap {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.search-box {
+  flex: 1;
+  min-width: 200px;
+  position: relative;
+}
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+.search-input {
+  width: 100%;
+  padding: .85rem 1rem .85rem 2.8rem;
+  border: 2px solid var(--border);
+  border-radius: var(--r-full);
+  font-family: var(--font-body);
+  font-size: .95rem;
+  font-weight: 500;
+  background: var(--surface);
+  color: var(--text-main);
+  outline: none;
+  transition: all var(--dur-fast) var(--ease-out);
+}
+.search-input:focus {
+  border-color: var(--sky-light);
+  box-shadow: 0 0 0 4px rgba(107,77,214,.12);
+}
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Filter chips */
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-bottom: 2.5rem;
+}
+.chip {
+  padding: .45rem 1.1rem;
+  border-radius: var(--r-full);
+  border: 2px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: .85rem;
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease-bounce);
+}
+.chip:hover { border-color: var(--sky-mid); color: var(--sky-mid); transform: translateY(-1px); }
+.chip.active {
+  background: var(--grad-sky);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(74,47,192,.35);
+}
+
+/* ============================================================
+   STORY CARDS GRID
+   ============================================================ */
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 1.5rem;
+}
+
+.story-card {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all var(--dur-med) var(--ease-bounce);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.story-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+
+.story-card-thumb {
+  height: 190px;
+  position: relative;
+  overflow: hidden;
+  background: var(--grad-sky);
+}
+.story-card-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .5s var(--ease-out);
+}
+.story-card:hover .story-card-thumb img { transform: scale(1.08); }
+
+/* Emoji badge on thumb */
+.story-card-badge {
+  position: absolute;
+  top: 12px; right: 12px;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  box-shadow: var(--shadow-md);
+  z-index: 2;
+}
+
+/* Category tag overlay on thumb */
+.story-cat-tag {
+  position: absolute;
+  bottom: 10px; left: 10px;
+  background: rgba(26,16,53,.75);
+  color: white;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: .2rem .7rem;
+  border-radius: var(--r-full);
+  backdrop-filter: blur(6px);
+}
+
+/* No image fallback */
+.story-thumb-fallback {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 5rem;
+}
+
+.story-card-body { padding: 1.2rem 1.4rem 1.4rem; flex: 1; display: flex; flex-direction: column; }
+.story-card-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--text-main);
+  margin-bottom: .4rem;
+  line-height: 1.25;
+}
+.story-card-author { font-size: .8rem; color: var(--text-muted); font-weight: 700; margin-bottom: .7rem; }
+.story-card-desc { font-size: .9rem; color: var(--text-body); line-height: 1.55; flex: 1; }
+
+.story-card-footer {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.read-link {
+  font-size: .85rem;
+  font-weight: 800;
+  color: var(--sky-mid);
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+  transition: gap var(--dur-fast) var(--ease-out);
+}
+.story-card:hover .read-link { gap: .6rem; }
+
+/* ============================================================
+   POEM CARDS
+   ============================================================ */
+.poems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ---- Poem Card ---- */
+.poem-card {
+  border-radius: var(--r-lg);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--dur-med) var(--ease-bounce);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+}
+.poem-card:hover {
+  transform: translateY(-10px) scale(1.015);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Color themes */
+.poem-card:nth-child(6n+1) { background: linear-gradient(150deg,#1e1060 0%,#4A2FC0 60%,#7B5EE8 100%); color: white; }
+.poem-card:nth-child(6n+2) { background: linear-gradient(150deg,#7c4800 0%,#c47a00 60%,#F5A623 100%); color: white; }
+.poem-card:nth-child(6n+3) { background: linear-gradient(150deg,#085c47 0%,#0a9e78 60%,#06D6A0 100%); color: white; }
+.poem-card:nth-child(6n+4) { background: linear-gradient(150deg,#b01f1f 0%,#e04040 60%,#FF8080 100%); color: white; }
+.poem-card:nth-child(6n+5) { background: linear-gradient(150deg,#1c1c40 0%,#2D2D7A 60%,#5555CC 100%); color: white; }
+.poem-card:nth-child(6n+6) { background: linear-gradient(150deg,#5a2d00 0%,#a05000 60%,#e07818 100%); color: white; }
+
+/* Top accent stripe */
+.poem-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: rgba(255,255,255,.35);
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+}
+
+/* Large decorative quote watermark */
+.poem-card::after {
+  content: '\201C';
+  position: absolute;
+  bottom: -20px;
+  right: 12px;
+  font-size: 12rem;
+  font-family: Georgia, serif;
+  line-height: 1;
+  color: rgba(255,255,255,.07);
+  pointer-events: none;
+  user-select: none;
+}
+
+.poem-card-inner {
+  padding: 1.8rem 1.8rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* Emoji bubble */
+.poem-emoji-wrap {
+  width: 56px; height: 56px;
+  border-radius: var(--r-md);
+  background: rgba(255,255,255,.15);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255,255,255,.25);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  transition: transform var(--dur-fast) var(--ease-bounce);
+  flex-shrink: 0;
+}
+.poem-card:hover .poem-emoji-wrap { transform: scale(1.15) rotate(-6deg); }
+
+.poem-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  margin-bottom: .35rem;
+  line-height: 1.25;
+  letter-spacing: .2px;
+}
+.poem-author-label {
+  font-size: .72rem;
+  font-weight: 800;
+  opacity: .6;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1.1rem;
+}
+
+/* Thin divider */
+.poem-divider {
+  width: 32px; height: 2px;
+  border-radius: var(--r-full);
+  background: rgba(255,255,255,.4);
+  margin-bottom: 1rem;
+}
+
+.poem-text {
+  font-size: .88rem;
+  line-height: 1.85;
+  white-space: pre-line;
+  opacity: .88;
+  flex: 1;
+  font-style: italic;
+}
+.poem-text-fade {
+  position: relative;
+  max-height: 5.5em;
+  overflow: hidden;
+}
+.poem-text-fade::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3em;
+  background: linear-gradient(to bottom, transparent, currentColor);
+  opacity: .18;
+}
+
+/* Read button — sits at bottom */
+.poem-card-footer {
+  padding: 1rem 1.8rem 1.5rem;
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(255,255,255,.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.poem-read-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .82rem;
+  font-weight: 800;
+  letter-spacing: .5px;
+  border-radius: var(--r-full);
+  padding: .5rem 1.1rem;
+  background: rgba(255,255,255,.15);
+  border: 1.5px solid rgba(255,255,255,.35);
+  color: white;
+  transition: all var(--dur-fast) var(--ease-bounce);
+  backdrop-filter: blur(6px);
+}
+.poem-read-btn .btn-arrow {
+  display: inline-block;
+  transition: transform var(--dur-fast) var(--ease-bounce);
+}
+.poem-card:hover .poem-read-btn {
+  background: rgba(255,255,255,.28);
+  border-color: rgba(255,255,255,.6);
+}
+.poem-card:hover .poem-read-btn .btn-arrow { transform: translateX(4px); }
+
+.poem-line-count {
+  font-size: .72rem;
+  font-weight: 700;
+  opacity: .55;
+  letter-spacing: .5px;
+}
+
+/* ---- Poem Reader Modal ---- */
+.poem-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,6,30,.8);
+  backdrop-filter: blur(20px) saturate(160%);
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--dur-med) var(--ease-out), visibility var(--dur-med);
+}
+.poem-modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+.poem-modal {
+  background: var(--surface);
+  border-radius: var(--r-xl);
+  max-width: 580px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 32px 80px rgba(0,0,0,.5);
+  position: relative;
+  transform: translateY(50px) scale(.94);
+  transition: transform var(--dur-med) var(--ease-bounce);
+  border: 1.5px solid var(--border);
+}
+.poem-modal::-webkit-scrollbar { width: 4px; }
+.poem-modal::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+.poem-modal-overlay.open .poem-modal {
+  transform: translateY(0) scale(1);
+}
+.poem-modal-header {
+  padding: 3rem 2.8rem 2.2rem;
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  position: relative;
+  overflow: hidden;
+}
+.poem-modal-header::after {
+  content: '\201C';
+  position: absolute;
+  bottom: -30px; right: 16px;
+  font-size: 14rem;
+  font-family: Georgia, serif;
+  line-height: 1;
+  color: rgba(255,255,255,.08);
+  pointer-events: none;
+}
+.poem-modal-close {
+  position: absolute;
+  top: 1.2rem; right: 1.2rem;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,.2);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all var(--dur-fast) var(--ease-bounce);
+  color: white;
+  font-weight: 700;
+  z-index: 2;
+}
+.poem-modal-close:hover { background: rgba(255,255,255,.35); transform: rotate(90deg) scale(1.15); }
+.poem-modal-emoji-wrap {
+  width: 68px; height: 68px;
+  border-radius: var(--r-md);
+  background: rgba(255,255,255,.18);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(255,255,255,.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+  position: relative; z-index: 1;
+}
+.poem-modal-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem,4vw,2.2rem);
+  color: white;
+  margin-bottom: .4rem;
+  line-height: 1.2;
+  position: relative; z-index: 1;
+}
+.poem-modal-author {
+  font-size: .78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,.65);
+  position: relative; z-index: 1;
+}
+.poem-modal-body {
+  padding: 2.2rem 2.8rem 2.8rem;
+}
+.poem-modal-divider {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-bottom: 1.8rem;
+}
+.poem-modal-divider::before,
+.poem-modal-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.poem-modal-divider-icon {
+  font-size: .9rem;
+  color: var(--gold);
+}
+.poem-modal-text {
+  font-size: 1.08rem;
+  line-height: 2.1;
+  white-space: pre-line;
+  color: var(--text-body);
+  font-style: italic;
+  font-family: var(--font-body);
+}
+
+/* ============================================================
+   PHONICS / ALPHABET GRID
+   ============================================================ */
+.phonics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+  gap: 1rem;
+}
+
+.animal-card {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 1.4rem .8rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease-bounce);
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+.animal-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--dur-fast);
+}
+.animal-card:hover {
+  transform: scale(1.07) rotate(1deg);
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
+}
+.animal-card:hover::before { opacity: 1; }
+.animal-card:hover { border-color: var(--ac); box-shadow: 0 8px 24px color-mix(in srgb, var(--ac) 35%, transparent); }
+
+/* Speaking state */
+.animal-card.speaking {
+  transform: scale(1.1) rotate(-2deg) !important;
+  border-color: var(--ac) !important;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--ac) 30%, transparent),
+              0 12px 32px color-mix(in srgb, var(--ac) 40%, transparent) !important;
+}
+.animal-card.speaking .animal-sound-ring {
+  animation: sound-ripple 1s ease-out infinite;
+}
+.animal-card.speaking .animal-speaker-badge {
+  opacity: 1;
+  transform: scale(1.3) rotate(-8deg);
+}
+.animal-card.speaking .animal-emoji-fallback {
+  animation: emoji-bounce .4s var(--ease-bounce) infinite alternate;
+}
+
+/* Sound ring ripple */
+.animal-sound-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: var(--r-lg);
+  border: 3px solid color-mix(in srgb, var(--ac, #4A2FC0) 60%, transparent);
+  pointer-events: none;
+  opacity: 0;
+}
+@keyframes sound-ripple {
+  0%   { opacity: .8; transform: scale(1); }
+  100% { opacity: 0;  transform: scale(1.18); }
+}
+@keyframes emoji-bounce {
+  0%   { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-6px) scale(1.1); }
+}
+
+/* Speaker badge */
+.animal-speaker-badge {
+  position: absolute;
+  top: 6px; right: 8px;
+  font-size: .9rem;
+  opacity: .35;
+  transition: all var(--dur-fast) var(--ease-bounce);
+  line-height: 1;
+}
+.animal-card:hover .animal-speaker-badge { opacity: .7; transform: scale(1.2); }
+
+/* Phonics sound badge */
+.animal-phonic-badge {
+  display: inline-block;
+  margin-top: .4rem;
+  background: color-mix(in srgb, var(--ac, #4A2FC0) 15%, transparent);
+  color: var(--ac, #4A2FC0);
+  border: 1.5px solid color-mix(in srgb, var(--ac, #4A2FC0) 40%, transparent);
+  border-radius: var(--r-full);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: .15rem .55rem;
+  font-style: italic;
+}
+
+.animal-letter {
+  position: absolute;
+  top: 0; left: 0;
+  width: 44px; height: 44px;
+  border-radius: 0 0 var(--r-md) 0;
+  background: var(--ac, var(--coral));
+  color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  box-shadow: var(--shadow-sm);
+  z-index: 2;
+}
+
+.animal-img-wrap {
+  width: 70px; height: 70px;
+  margin: .3rem auto .7rem;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--surface-2);
+  display: flex; align-items: center; justify-content: center;
+}
+.animal-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  transition: transform var(--dur-fast) var(--ease-bounce);
+}
+.animal-card:hover .animal-img-wrap img { transform: scale(1.15); }
+
+.animal-emoji-fallback { font-size: 2.8rem; }
+.animal-name {
+  font-family: var(--font-accent);
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: .2rem;
+}
+.animal-syllables {
+  font-size: .75rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+
+/* ============================================================
+   STORY DETAIL VIEW
+   ============================================================ */
+.story-detail-wrapper {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 7rem max(1.5rem, 4vw) 4rem;
+}
+
+.story-detail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--sky-mid);
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: all var(--dur-fast) var(--ease-out);
+  padding: .4rem .8rem;
+  border-radius: var(--r-full);
+  background: var(--surface-2);
+}
+.story-detail-back:hover { background: var(--sky-mid); color: white; transform: translateX(-3px); }
+
+.story-detail-card {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.story-detail-banner {
+  background: var(--grad-sky);
+  padding: 3rem 2.5rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.story-detail-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 50px;
+  background: var(--surface);
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+.story-detail-emoji {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,.2));
+}
+.story-detail-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: white;
+  margin-bottom: .4rem;
+  line-height: 1.2;
+}
+.story-detail-author { font-size: 1rem; color: rgba(255,255,255,.75); font-weight: 700; }
+
+.story-detail-body {
+  padding: 2rem 2.5rem 2.5rem;
+}
+.story-body-text {
+  font-size: 1.1rem;
+  color: var(--text-body);
+  line-height: 1.85;
+  font-family: var(--font-body);
+}
+.story-body-text p { margin-bottom: 1.4rem; }
+.story-body-text img {
+  width: 100%;
+  border-radius: var(--r-lg);
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-md);
+  object-fit: cover;
+  max-height: 340px;
+}
+.story-body-text strong { color: var(--sky-mid); font-weight: 800; }
+
+/* Story navigation */
+.story-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 2rem 2.5rem;
+  border-top: 2px dashed var(--border);
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   EMPTY STATE
+   ============================================================ */
+.empty-state {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-muted);
+}
+.empty-state-emoji { font-size: 3.5rem; margin-bottom: 1rem; }
+.empty-state-msg { font-size: 1.1rem; font-weight: 600; }
+
+/* ============================================================
+   PAGE HEADER BANNER (for sub-pages)
+   ============================================================ */
+.page-banner {
+  padding: 7rem max(1.5rem, 5vw) 4.5rem;
+  background: var(--grad-sky);
+  position: relative;
+  overflow: hidden;
+}
+.page-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 60px;
+  background: var(--bg);
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+.page-banner-inner {
+  max-width: 1260px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.page-banner-emoji { font-size: 2.5rem; margin-bottom: .8rem; display: block; }
+.page-banner-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3rem);
+  color: white;
+  margin-bottom: .4rem;
+}
+.page-banner-sub { font-size: 1rem; color: rgba(255,255,255,.8); font-weight: 500; }
+
+/* Page banner variants */
+.page-banner.poems-banner  { background: linear-gradient(135deg, #C96F00, #F5A623, #FFD166); }
+.page-banner.phonics-banner { background: linear-gradient(135deg, #0A6E52, #06D6A0, #68EFC8); }
+
+/* ============================================================
+   TESTIMONIAL / CALLOUT STRIP
+   ============================================================ */
+.cta-strip {
+  background: var(--grad-sky);
+  border-radius: var(--r-xl);
+  padding: 3rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin: 0 max(1.5rem, 4vw) 4rem;
+  max-width: 1260px;
+  margin-left: auto; margin-right: auto;
+}
+.cta-strip::before {
+  content: '⭐';
+  position: absolute;
+  font-size: 8rem;
+  top: -20px; left: -20px;
+  opacity: .06;
+}
+.cta-strip::after {
+  content: '📚';
+  position: absolute;
+  font-size: 8rem;
+  bottom: -20px; right: -20px;
+  opacity: .06;
+}
+.cta-strip-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: white;
+  margin-bottom: .7rem;
+}
+.cta-strip-sub { font-size: 1rem; color: rgba(255,255,255,.8); margin-bottom: 1.5rem; }
+.cta-strip .btn-group { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: var(--ink);
+  color: rgba(255,255,255,.6);
+  padding: 2rem max(1.5rem, 5vw);
+  text-align: center;
+  font-size: .85rem;
+}
+footer .footer-logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: .4rem;
+}
+footer .footer-logo span { color: var(--gold); }
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin: .7rem 0;
+  flex-wrap: wrap;
+}
+.footer-links button {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,.5);
+  font-size: .85rem;
+  cursor: pointer;
+  transition: color var(--dur-fast);
+}
+.footer-links button:hover { color: var(--gold); }
+
+/* ============================================================
+   SCROLL-REVEAL
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity var(--dur-slow) var(--ease-out),
+              transform var(--dur-slow) var(--ease-out);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: .1s; }
+.reveal-delay-2 { transition-delay: .2s; }
+.reveal-delay-3 { transition-delay: .3s; }
+.reveal-delay-4 { transition-delay: .4s; }
+
+/* ============================================================
+   DARK MODE OVERRIDES
+   ============================================================ */
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .story-card,
+[data-theme="dark"] .animal-card,
+[data-theme="dark"] .why-card,
+[data-theme="dark"] .story-detail-card {
+  background: var(--surface);
+  border-color: var(--border);
+}
+[data-theme="dark"] .poem-card:nth-child(4n+2) {
+  background: linear-gradient(145deg, #2D2200, #4D3800);
+  color: var(--gold-light);
+  border-color: #6D5000;
+}
+[data-theme="dark"] .search-input { background: var(--surface); }
+[data-theme="dark"] .chip { background: var(--surface); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width: 860px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .mobile-nav { display: block; }
+  .why-section { grid-template-columns: 1fr; }
+  .why-visual { order: -1; }
+  .why-visual { grid-template-columns: repeat(4, 1fr); }
+  .why-card:nth-child(2),
+  .why-card:nth-child(4) { margin-top: 0; }
+}
+
+@media(max-width: 600px) {
+  .section { padding: 3rem 1rem; }
+  .hero-cta .btn { width: 100%; justify-content: center; }
+  .hero-stats { gap: .6rem; }
+  .why-section { padding: 2rem 1.2rem; }
+  .phonics-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+  .story-detail-banner { padding: 2rem 1.5rem 3.5rem; }
+  .story-detail-body { padding: 1.5rem 1.5rem; }
+  .story-nav { padding: 1.5rem; gap: .5rem; }
+  .cta-strip { padding: 2rem 1.2rem; }
+  .why-visual { grid-template-columns: 1fr 1fr; }
+}
+
+/* ============================================================
+   UTILITY
+   ============================================================ */
+.text-center { text-align: center; }
+.mt-1 { margin-top: .5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.hidden { display: none !important; }
+
+/* Sparkling cursor trail (pure CSS, works via JS) */
+.sparkle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99998;
+  animation: sparkle-out .6s forwards;
+  font-size: 1rem;
+}
+@keyframes sparkle-out {
+  0%   { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-30px) scale(.2); }
+}
+</style>
+</head>
+<body>
+
+<!-- ████ PRELOADER ████ -->
+<div id="preloader">
+  <div class="preloader-logo">Word<span>ly</span> ✨</div>
+  <div class="preloader-dots">
+    <span></span><span></span><span></span>
+  </div>
+</div>
+
+<!-- ████ PROGRESS BAR ████ -->
+<div class="progress-bar" id="progress-bar"></div>
+
+<!-- ████ HEADER ████ -->
+<header id="site-header">
+  <div class="header-inner">
+
+    <!-- Logo -->
+    <div class="logo" id="logo-btn" role="button" tabindex="0" aria-label="Go to home page">
+      <div class="logo-icon">📖</div>
+      <div class="logo-name">Word<span>ly</span></div>
+    </div>
+
+    <!-- Desktop Nav -->
+    <nav aria-label="Main navigation">
+      <ul class="nav-links" id="desktop-nav">
+        <li><a href="#home"    class="nav-link active" data-view="home"><span class="nav-tab-bg"></span><span class="nav-icon">🏠</span> Home</a></li>
+        <li><a href="#stories" class="nav-link"        data-view="stories"><span class="nav-tab-bg"></span><span class="nav-icon">📚</span> Stories</a></li>
+        <li><a href="#poems"   class="nav-link"        data-view="poems"><span class="nav-tab-bg"></span><span class="nav-icon">🌸</span> Poems</a></li>
+        <li><a href="#phonics" class="nav-link"        data-view="phonics"><span class="nav-tab-bg"></span><span class="nav-icon">🔤</span> Phonics</a></li>
+      </ul>
+    </nav>
+
+    <!-- Controls -->
+    <div class="nav-controls">
+      <button class="icon-btn" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Mobile Nav Drawer -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+  <a href="#home"     class="nav-link active"  data-view="home"><span>🏠</span> Home</a>
+  <a href="#stories"  class="nav-link"         data-view="stories"><span>📚</span> Stories</a>
+  <a href="#poems"    class="nav-link"         data-view="poems"><span>🌸</span> Poems</a>
+  <a href="#phonics"  class="nav-link"         data-view="phonics"><span>🔤</span> Phonics</a>
+</nav>
+
+<!-- ████ MAIN CONTENT ████ -->
+<main id="app" role="main">
+
+  <!-- ═══════════════════════════════════════════════
+       HOME VIEW
+  ═══════════════════════════════════════════════ -->
+  <section id="view-home" class="view active">
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg"></div>
+      <div class="hero-shapes" aria-hidden="true">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+      </div>
+      <!-- Floating emojis -->
+      <div class="hero-shapes" aria-hidden="true">
+        <span class="float-emoji">🌟</span>
+        <span class="float-emoji">📖</span>
+        <span class="float-emoji">🦋</span>
+        <span class="float-emoji">🌈</span>
+        <span class="float-emoji">🦊</span>
+        <span class="float-emoji">🎈</span>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          A Magical Learning World for Kids
+        </div>
+
+        <h1 class="hero-title" id="hero-heading">
+          Where Every<br>
+          <span class="highlight">Story</span> Sparks a<br>
+          Lifelong Love of Reading
+        </h1>
+
+        <p class="hero-sub">
+          Nurturing young minds through enchanting stories, beautiful poems, and playful phonics — one magical page at a time. 🌟
+        </p>
+
+        <div class="hero-cta">
+          <button class="btn btn-primary" onclick="app.go('stories')">
+            📚 Explore Stories
+          </button>
+          <button class="btn btn-outline" onclick="app.go('phonics')">
+            🔤 Start Phonics
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-stats" role="list">
+        <div class="stat-pill" role="listitem"><span class="stat-emoji">📖</span> 8 Classic Stories</div>
+        <div class="stat-pill" role="listitem"><span class="stat-emoji">🌸</span> 4 Beautiful Poems</div>
+        <div class="stat-pill" role="listitem"><span class="stat-emoji">🔤</span> A-to-Z Phonics</div>
+        <div class="stat-pill" role="listitem"><span class="stat-emoji">🏆</span> Free to Learn</div>
+      </div>
+    </section>
+
+    <!-- Features section -->
+    <section class="section" aria-labelledby="features-heading">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">What We Offer</span>
+          <h2 class="section-title" id="features-heading">Your <span>Learning Garden</span> Awaits</h2>
+          <p class="section-sub">Three amazing worlds to explore — each designed to make learning joyful, meaningful, and unforgettable.</p>
+          <span class="title-underline"></span>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card stories reveal reveal-delay-1" onclick="app.go('stories')" role="button" tabindex="0" aria-label="Explore Stories">
+            <div class="feature-icon">📚</div>
+            <h3 class="feature-title">Story Library</h3>
+            <p class="feature-desc">Beloved fables, adventures, and classic tales that teach lasting values through unforgettable characters and vivid worlds.</p>
+            <p class="feature-count">✨ 8 Stories Available</p>
+          </div>
+          <div class="feature-card poems reveal reveal-delay-2" onclick="app.go('poems')" role="button" tabindex="0" aria-label="Explore Poems">
+            <div class="feature-icon">🌸</div>
+            <h3 class="feature-title">Poetry Garden</h3>
+            <p class="feature-desc">Timeless poems from beloved poets — crafted to spark imagination, rhythm, and a deep love for language and beauty.</p>
+            <p class="feature-count">✨ 4 Poems Curated</p>
+          </div>
+          <div class="feature-card phonics reveal reveal-delay-3" onclick="app.go('phonics')" role="button" tabindex="0" aria-label="Start Phonics">
+            <div class="feature-icon">🔤</div>
+            <h3 class="feature-title">Phonics with Animals</h3>
+            <p class="feature-desc">Learn every letter of the alphabet with adorable animal friends! Syllables, sounds, and spelling made irresistibly fun.</p>
+            <p class="feature-count">✨ Full A–Z Alphabet</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Wordly -->
+    <div class="why-section reveal">
+      <div class="why-text">
+        <h2 class="why-title">Why Children <span>Love</span> Wordly</h2>
+        <p class="why-desc">We believe every child deserves access to rich, engaging stories that build emotional intelligence, expand vocabulary, and ignite a lifelong passion for reading.</p>
+        <ul class="benefit-list">
+          <li class="benefit-item">
+            <div class="benefit-dot" style="background:#FF6B6B22">❤️</div>
+            Builds emotional intelligence through relatable characters
+          </li>
+          <li class="benefit-item">
+            <div class="benefit-dot" style="background:#F5A62322">🧠</div>
+            Strengthens vocabulary and reading comprehension
+          </li>
+          <li class="benefit-item">
+            <div class="benefit-dot" style="background:#06D6A022">🌱</div>
+            Teaches values like honesty, kindness, and courage
+          </li>
+          <li class="benefit-item">
+            <div class="benefit-dot" style="background:#4A2FC022">✨</div>
+            Makes phonics genuinely exciting with animal friends
+          </li>
+        </ul>
+        <button class="btn btn-sky mt-3" onclick="app.go('stories')">Start Reading Now →</button>
+      </div>
+      <div class="why-visual" aria-hidden="true">
+        <div class="why-card">
+          <div class="why-card-emoji">🎭</div>
+          <div class="why-card-label">Engaging Stories</div>
+        </div>
+        <div class="why-card">
+          <div class="why-card-emoji">🌈</div>
+          <div class="why-card-label">Vivid Imagination</div>
+        </div>
+        <div class="why-card">
+          <div class="why-card-emoji">🏆</div>
+          <div class="why-card-label">Build Confidence</div>
+        </div>
+        <div class="why-card">
+          <div class="why-card-emoji">💡</div>
+          <div class="why-card-label">Smart Learning</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Strip -->
+    <div class="cta-strip reveal">
+      <h2 class="cta-strip-title">Ready to Start the Adventure? 🚀</h2>
+      <p class="cta-strip-sub">Dive into stories, poems, and phonics — all completely free for young learners.</p>
+      <div class="btn-group">
+        <button class="btn btn-primary" onclick="app.go('stories')">📚 Browse Stories</button>
+        <button class="btn btn-outline" onclick="app.go('poems')">🌸 Read Poems</button>
+      </div>
+    </div>
+
+  </section><!-- /home -->
+
+  <!-- ═══════════════════════════════════════════════
+       STORIES VIEW
+  ═══════════════════════════════════════════════ -->
+  <section id="view-stories" class="view">
+
+    <div class="page-banner">
+      <div class="page-banner-inner">
+        <span class="page-banner-emoji">📚</span>
+        <h1 class="page-banner-title">Story Library</h1>
+        <p class="page-banner-sub">Timeless tales for curious young minds — choose your adventure!</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-inner">
+        <!-- Search + Filters -->
+        <div class="search-wrap">
+          <div class="search-box">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input type="text" id="story-search" class="search-input" placeholder="Search stories by title or description…" aria-label="Search stories">
+          </div>
+        </div>
+        <div class="filter-row" role="group" aria-label="Filter stories">
+          <button class="chip active" data-filter="all">🌟 All Stories</button>
+          <button class="chip" data-filter="fable">🦊 Fables</button>
+          <button class="chip" data-filter="adventure">🗺️ Adventures</button>
+          <button class="chip" data-filter="classic">👑 Classics</button>
+        </div>
+
+        <div class="stories-grid" id="stories-grid" role="list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+  </section><!-- /stories -->
+
+  <!-- ═══════════════════════════════════════════════
+       STORY DETAIL VIEW
+  ═══════════════════════════════════════════════ -->
+  <section id="view-story-detail" class="view">
+    <div class="story-detail-wrapper">
+      <button class="story-detail-back" id="back-to-stories" onclick="app.go('stories')">
+        ← Back to Library
+      </button>
+      <div class="story-detail-card">
+        <div class="story-detail-banner">
+          <span class="story-detail-emoji" id="detail-emoji">📖</span>
+          <h1 class="story-detail-title" id="detail-title"></h1>
+          <p class="story-detail-author" id="detail-author"></p>
+        </div>
+        <div class="story-detail-body">
+          <div class="story-body-text" id="detail-content"></div>
+        </div>
+        <div class="story-nav">
+          <button class="btn btn-sky btn-sm" id="prev-story">← Previous</button>
+          <button class="btn btn-sky btn-sm" onclick="app.go('stories')">📚 All Stories</button>
+          <button class="btn btn-sky btn-sm" id="next-story">Next →</button>
+        </div>
+      </div>
+    </div>
+  </section><!-- /story-detail -->
+
+  <!-- ═══════════════════════════════════════════════
+       POEMS VIEW
+  ═══════════════════════════════════════════════ -->
+  <section id="view-poems" class="view">
+
+    <div class="page-banner poems-banner">
+      <div class="page-banner-inner">
+        <span class="page-banner-emoji">🌸</span>
+        <h1 class="page-banner-title">Poetry Garden</h1>
+        <p class="page-banner-sub">Beautiful verse to spark imagination and a love for language.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-inner">
+        <div class="search-wrap">
+          <div class="search-box">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input type="text" id="poem-search" class="search-input" placeholder="Search poems or poets…" aria-label="Search poems">
+          </div>
+        </div>
+        <div class="poems-grid" id="poems-grid" role="list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+  </section><!-- /poems -->
+
+  <!-- ═══════════════════════════════════════════════
+       PHONICS VIEW
+  ═══════════════════════════════════════════════ -->
+  <section id="view-phonics" class="view">
+
+    <div class="page-banner phonics-banner">
+      <div class="page-banner-inner">
+        <span class="page-banner-emoji">🦁</span>
+        <h1 class="page-banner-title">Animal Phonics</h1>
+        <p class="page-banner-sub">Meet the alphabet's animal ambassadors — tap each one to learn!</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-inner">
+        <div class="search-wrap">
+          <div class="search-box">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input type="text" id="animal-search" class="search-input" placeholder="Search animals or letters…" aria-label="Search animals">
+          </div>
+        </div>
+        <div class="phonics-grid" id="phonics-grid" role="list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+  </section><!-- /phonics -->
+
+</main>
+
+<!-- ████ POEM READER MODAL ████ -->
+<div class="poem-modal-overlay" id="poem-modal-overlay" role="dialog" aria-modal="true" aria-label="Poem reader">
+  <div class="poem-modal" id="poem-modal">
+    <div class="poem-modal-header" id="poem-modal-header">
+      <button class="poem-modal-close" id="poem-modal-close" aria-label="Close poem">✕</button>
+      <div class="poem-modal-emoji-wrap">
+        <span id="poem-modal-emoji">🌸</span>
+      </div>
+      <div class="poem-modal-title" id="poem-modal-title"></div>
+      <div class="poem-modal-author" id="poem-modal-author"></div>
+    </div>
+    <div class="poem-modal-body">
+      <div class="poem-modal-divider"><span class="poem-modal-divider-icon">✦</span></div>
+      <div class="poem-modal-text" id="poem-modal-text"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ████ FOOTER ████ -->
+<footer>
+  <div class="footer-logo">Word<span>ly</span> ✨</div>
+  <p>Shaping young students, one story at a time.</p>
+  <div class="footer-links">
+    <button onclick="app.go('stories')">Stories</button>
+    <button onclick="app.go('poems')">Poems</button>
+    <button onclick="app.go('phonics')">Phonics</button>
+    <button onclick="app.go('home')">Home</button>
+  </div>
+  <p style="margin-top:.5rem; opacity:.4;">© 2026 Wordly Educational Platform · Made with ❤️ for young readers</p>
+</footer>
+
+<!-- ████ JAVASCRIPT ████ -->
+<script>
+/* ============================================================
+   DATA
+   ============================================================ */
+const DATA = {
+  stories: [
+    {
+      id: 'wolf',
+      title: 'The Boy Who Cried Wolf',
+      author: 'Aesop',
+      category: 'fable',
+      emoji: '🐺',
+      image: 'img/boy_cried_wolf.png',
+      thumbColor: 'linear-gradient(135deg,#4A2FC0,#9B7DFF)',
+      description: 'A shepherd boy learns the hard way that trust, once broken, is not easily rebuilt.',
+      content: `<p>There was a young shepherd boy who lived near a quiet village. Every day, he led his flock of sheep to the green valley below the rocky hills to graze.</p>
+      <img src="img/boy_cried_wolf.png" alt="Shepherd boy with his sheep">
+      <p>Day after day, it was the same routine — and the boy found it terribly boring. So one afternoon, he decided to play a prank on the villagers.</p>
+      <p>He ran down the hill shouting: <strong>"Wolf! Wolf! A wolf is chasing my sheep!"</strong></p>
+      <p>The frightened villagers dropped everything and rushed up the hill to help. But when they arrived, breathless, they found no wolf — only the boy laughing.</p>
+      <p>A week passed. The boy played the same trick again. Again the villagers ran to help. Again they found nothing but a giggling boy. They walked back down the hill, shaking their heads.</p>
+      <p>Then one dark afternoon, a real wolf appeared from the forest! The boy screamed with all his might: <strong>"Wolf! Wolf! Please help!"</strong></p>
+      <p>But this time, no one came. The villagers heard his cries, but they thought it was another trick. The wolf scattered the flock.</p>
+      <p>That evening, an old shepherd found the boy sitting alone, weeping. "Why didn't anyone help me?" the boy cried. The old man sat beside him and said gently: <em>"Nobody believes a liar — even when he tells the truth."</em></p>`,
+      moral: 'Honesty is the most precious gift you can give.'
+    },
+    {
+      id: 'sal',
+      title: 'Blueberries for Sal',
+      author: 'Robert McCloskey',
+      category: 'adventure',
+      emoji: '🫐',
+      image: 'img/blueberries_sal.png',
+      thumbColor: 'linear-gradient(135deg,#06D6A0,#4A2FC0)',
+      description: 'Little Sal and a baby bear have an unexpected mix-up on Blueberry Hill!',
+      content: `<p>One sunny summer morning, Little Sal went with her mother to Blueberry Hill to pick blueberries.</p>
+      <p>Sal brought along her small tin pail. Her mother carried a big tin pail. "We shall pick berries and store them for winter," her mother said cheerfully.</p>
+      <p>Sal began picking — <em>kuplink, kuplank, kuplunk!</em> — dropping berries into her pail one by one. But she also ate a great many.</p>
+      <img src="img/blueberries_sal.png" alt="Blueberries for Sal illustration">
+      <p>On the other side of Blueberry Hill, a mother bear was leading her baby bear, Little Bear, up the slope to eat blueberries before the long winter sleep.</p>
+      <p>Little Sal followed behind her mother, eating berries. But soon she got distracted — and accidentally began following Little Bear's mother! And Little Bear, munching away, accidentally began following Sal's mother!</p>
+      <p>When the two mothers heard small footsteps behind them, they each turned around — and gave a tremendous start!</p>
+      <p>Sal's mother looked down at Little Bear. Little Bear's mother looked down at Little Sal. Very gently, they guided the little ones back to where they belonged.</p>
+      <p>By the end of the day, both pails were full of blueberries — and both families had a wonderful story to tell.</p>`,
+      moral: 'Always stay close to those you love!'
+    },
+    {
+      id: 'milkmaid',
+      title: 'The Milkmaid and Her Pail',
+      author: 'Aesop',
+      category: 'fable',
+      emoji: '🥛',
+      image: 'img/milkmaid.png',
+      thumbColor: 'linear-gradient(135deg,#F5A623,#FF6B6B)',
+      description: 'A young milkmaid learns a timeless lesson about dreaming too far ahead.',
+      content: `<p>A milkmaid was walking home from the pasture, a pail of fresh milk balanced gracefully on her head, her mind floating with happy plans.</p>
+      <img src="img/milkmaid.png" alt="The Milkmaid walking">
+      <p>"This milk," she said to herself, "will give me plenty of cream. I shall churn the cream into butter, sell it at market, and buy a dozen eggs."</p>
+      <p>"The eggs will hatch into chicks. I shall sell the grown hens and buy a beautiful new dress — pink and gold with ribbons!" She smiled at the thought.</p>
+      <p>"At the fair, all the young men will admire me. But I shall simply toss my head like this and walk away proudly—"</p>
+      <p>And she tossed her head. <strong>CRASH!</strong> The pail fell. The milk spilled across the ground in a white river — and with it, all her beautiful plans.</p>
+      <p>The milkmaid sat down in the muddy road and cried. A passing farmer stopped and asked what happened. She told him everything.</p>
+      <p>The farmer smiled kindly: <em>"Do not count your chicks before they are hatched, dear girl. What we have in hand is worth more than what we only imagine."</em></p>`,
+      moral: 'Do not count your chickens before they are hatched.'
+    },
+    {
+      id: 'fox',
+      title: 'The Clever Fox',
+      author: 'Arun George',
+      category: 'fable',
+      emoji: '🦊',
+      image: 'img/clever_fox.png',
+      thumbColor: 'linear-gradient(135deg,#C96F00,#FFD166)',
+      description: 'A cunning fox uses flattery to trick a proud crow. A timeless tale about vanity.',
+      content: `<p>A crow found a large piece of cheese and flew high into the branches of a tall tree, her black feathers shining in the morning sun.</p>
+      <p>Below, a hungry fox caught the smell of cheese on the breeze. He sat beneath the tree, his amber eyes gleaming with an idea.</p>
+      <p>"Good morning, dear Crow!" called the fox in the sweetest voice. "How magnificent you look today! Your feathers are the finest I have ever seen — they put peacocks to shame!"</p>
+      <p>The crow blinked and puffed up with pride.</p>
+      <p>"And I have heard," continued the fox, his voice dripping with honey, "that your singing voice is the most beautiful in all the forest. Please — <strong>would you honour me with a song?</strong>"</p>
+      <p>The crow could not resist. She opened her beak wide to sing her best — <em>"CAW!"</em></p>
+      <p>The cheese tumbled from her beak. The fox snapped it up in an instant and trotted away with a grin.</p>
+      <p>"Thank you for the cheese!" he called back. "And a word of advice: <em>beware of those who flatter you — they often want something in return.</em>"</p>
+      <p>The crow sat alone in her branch, wiser than before.</p>`,
+      moral: 'Never trust flatterers who only seek to gain from you.'
+    },
+    {
+      id: 'pigs',
+      title: 'The Three Little Pigs',
+      author: 'Traditional',
+      category: 'classic',
+      emoji: '🐷',
+      image: 'img/three_pigs.png',
+      thumbColor: 'linear-gradient(135deg,#FF6B6B,#FF9A8B)',
+      description: 'Three pig brothers learn that patience and hard work always pay off in the end.',
+      content: `<p>Once upon a time, three little pigs set off from their mother's home to make their way in the wide world.</p>
+      <img src="img/three_pigs.png" alt="Three little pigs">
+      <p>The first little pig was lazy. He built a house out of <strong>straw</strong> as quickly as he could and spent the rest of the day singing and dancing.</p>
+      <p>The second little pig worked a little harder. He built a house out of <strong>sticks</strong> — it took two days, but he was satisfied.</p>
+      <p>The third little pig was hardworking and wise. She worked for a whole month, laying <strong>bricks</strong> one by one, until she had a strong, solid home.</p>
+      <p>Soon, a big bad wolf came prowling through the forest. He blew down the straw house with one enormous puff — <em>WHOOSH!</em> He blew down the stick house just as easily — <em>WHOOOM!</em></p>
+      <p>But when he reached the brick house, he huffed and puffed... and puffed and huffed... until he turned quite blue. Not a single brick moved.</p>
+      <p>All three pigs were now safely inside. The wolf tried climbing down the chimney — but the clever third pig had a pot of boiling water waiting, and with a yelp the wolf ran away and was never seen again.</p>
+      <p>The three pigs lived together in the strong brick house, safe and happy forever after.</p>`,
+      moral: 'Hard work and preparation always win in the end.'
+    },
+    {
+      id: 'pea',
+      title: 'The Princess and the Pea',
+      author: 'H.C. Andersen',
+      category: 'classic',
+      emoji: '👑',
+      image: 'img/princess_pea.png',
+      thumbColor: 'linear-gradient(135deg,#9B7DFF,#FF9A8B)',
+      description: 'Can you feel a pea through twenty mattresses? Only a true princess can!',
+      content: `<p>Once upon a time there was a prince who wanted to marry a real princess. He searched the entire world, but everywhere he went, something was not quite right. There were plenty of princesses, but whether they were real princesses he had difficulty determining.</p>
+      <p>One evening, a terrible storm swept over the kingdom. Thunder crashed, lightning blazed — and suddenly there was a knock at the castle gate.</p>
+      <p>There stood a young woman soaking wet from head to toe. She said she was a princess, but she looked like a bedraggled little sparrow.</p>
+      <p>"We shall soon find out," thought the old Queen. She said nothing, but went quietly into the bedroom and placed a tiny <strong>pea</strong> at the very bottom of the bed. Then she stacked twenty mattresses on top of it, and twenty eiderdown quilts on top of those.</p>
+      <p>The princess climbed up the enormous mountain of bedding and tried to sleep.</p>
+      <p>In the morning, the Queen asked: "How did you sleep, my dear?"</p>
+      <p>"Oh, dreadfully!" said the princess. "Something horribly hard was in the bed — I am black and blue all over! It was quite terrible!"</p>
+      <p>Now they knew she was a true princess! Only a real princess could feel a tiny pea through twenty mattresses and twenty quilts. The prince asked her to marry him at once, and they were very happy together.</p>`,
+      moral: 'True sensitivity and grace cannot be hidden.'
+    },
+    {
+      id: 'tortoise',
+      title: 'The Tortoise and the Hare',
+      author: 'Aesop',
+      category: 'fable',
+      emoji: '🐢',
+      image: 'img/tortoise_hare.png',
+      thumbColor: 'linear-gradient(135deg,#06D6A0,#2D1B8E)',
+      description: 'A speedy hare learns that slow and steady really does win the race.',
+      content: `<p>The hare was always boasting about how fast he could run. "No one in this forest can match my speed!" he would say, beating his chest.</p>
+      <p>The old tortoise listened patiently one afternoon and said quietly: "I will race you."</p>
+      <p>The hare nearly fell over laughing. "You? Race me? Ha! Very well — I accept!" Every animal in the forest gathered to watch.</p>
+      <img src="img/tortoise_hare.png" alt="Tortoise and Hare">
+      <p>At the starting signal, the hare shot off like an arrow. Within minutes he was halfway to the finish line, while the tortoise had barely left the starting spot.</p>
+      <p>"I have plenty of time," thought the hare, flopping down under a shady oak tree. "I shall take a little rest." He closed his eyes... and fell deeply asleep.</p>
+      <p>Meanwhile, the tortoise kept plodding forward. One steady step at a time. Left, right, left, right. Never stopping, never rushing.</p>
+      <p>When the hare finally woke up, he gave a great start. Far in the distance, he could see the tortoise approaching the finish line!</p>
+      <p>The hare sprinted with everything he had — but it was too late. The tortoise crossed the finish line to the cheers of every forest creature.</p>`,
+      moral: 'Slow and steady wins the race. Persistence beats talent.'
+    },
+    {
+      id: 'goldilocks',
+      title: 'Goldilocks and the Three Bears',
+      author: 'Traditional',
+      category: 'classic',
+      emoji: '🐻',
+      image: 'img/goldilocks.png',
+      thumbColor: 'linear-gradient(135deg,#F5A623,#C96F00)',
+      description: 'A curious girl discovers that some things need to be just right — not too much, not too little.',
+      content: `<p>Deep in the forest stood a little cottage. Inside lived three bears: a great big Papa Bear, a middle-sized Mama Bear, and a tiny Baby Bear.</p>
+      <p>One morning, while their porridge cooled, the three bears went for a walk in the woods. Just then, a girl with golden curls came skipping through the forest. She was called Goldilocks.</p>
+      <p>Finding the door unlocked, she stepped inside. She tasted Papa Bear's porridge — <strong>too hot!</strong> She tasted Mama Bear's — <strong>too cold!</strong> She tasted Baby Bear's — <em>just right!</em> She ate it all up.</p>
+      <img src="img/goldilocks.png" alt="Goldilocks and the Three Bears">
+      <p>Feeling sleepy, she tried the chairs. Papa's was too hard. Mama's was too soft. Baby's was just right — but she rocked so hard it broke!</p>
+      <p>Upstairs, she tried the beds. Papa's was too hard. Mama's was too soft. Baby Bear's was just right, and she fell sound asleep.</p>
+      <p>When the three bears returned, they found the mess. "Someone's been eating my porridge!" they each said. Then: "Someone's been sleeping in my bed — and there she is!"</p>
+      <p>Goldilocks woke up, saw three bears staring at her, and ran out the window and all the way home — and she never visited without an invitation again.</p>`,
+      moral: 'Respect other people\'s belongings and always ask before you take.'
+    }
+  ],
+
+  poems: [
+    {
+      title: 'Trees',
+      author: 'Joyce Kilmer',
+      emoji: '🌳',
+      text: 'I think that I shall never see\nA poem lovely as a tree.\n\nA tree whose hungry mouth is pressed\nAgainst the earth\'s sweet flowing breast;\n\nA tree that looks at God all day,\nAnd lifts her leafy arms to pray;\n\nA tree that may in summer wear\nA nest of robins in her hair;\n\nPoems are made by fools like me,\nBut only God can make a tree.'
+    },
+    {
+      title: 'The Rainbow',
+      author: 'Christina Rossetti',
+      emoji: '🌈',
+      text: 'Boats sail on the rivers,\nAnd ships sail on the seas;\nBut clouds that sail across the sky\nAre prettier far than these.\n\nThere are bridges on the rivers,\nAs pretty as you please;\nBut the bow that bridges heaven,\nAnd overtops the trees,\nAnd builds a road from earth to sky,\nIs prettier far than these.'
+    },
+    {
+      title: 'Now We Are Six',
+      author: 'A. A. Milne',
+      emoji: '🎂',
+      text: 'When I was One,\nI had just begun.\n\nWhen I was Two,\nI was nearly new.\n\nWhen I was Three,\nI was hardly Me.\n\nWhen I was Four,\nI was not much more.\n\nWhen I was Five,\nI was just alive.\n\nBut now I am Six,\nI\'m as clever as clever.\nSo I think I\'ll be six now\nFor ever and ever.'
+    },
+    {
+      title: 'The Owl and the Pussy-Cat',
+      author: 'Edward Lear',
+      emoji: '🦉',
+      text: 'The Owl and the Pussy-cat went to sea\nIn a beautiful pea-green boat,\nThey took some honey, and plenty of money,\nWrapped up in a five-pound note.\n\nThe Owl looked up to the stars above,\nAnd sang to a small guitar,\n"O lovely Pussy! O Pussy, my love,\nWhat a beautiful Pussy you are!"\n\nPussy said to the Owl, "You elegant fowl!\nHow charmingly sweet you sing!\nO let us be married! too long we have tarried:\nBut what shall we do for a ring?"\n\nThey sailed away, for a year and a day,\nTo the land where the Bong-tree grows,\nAnd there in a wood a Piggy-wig stood\nWith a ring at the end of his nose.'
+    },
+    {
+      title: 'Daffodils',
+      author: 'William Wordsworth',
+      emoji: '🌼',
+      text: 'I wandered lonely as a cloud\nThat floats on high o\'er vales and hills,\nWhen all at once I saw a crowd,\nA host, of golden daffodils;\nBeside the lake, beneath the trees,\nFluttering and dancing in the breeze.\n\nContinuous as the stars that shine\nAnd twinkle on the milky way,\nThey stretched in never-ending line\nAlong the margin of a bay:\nTen thousand saw I at a glance,\nTossing their heads in sprightly dance.\n\nFor oft, when on my couch I lie\nIn vacant or in pensive mood,\nThey flash upon that inward eye\nWhich is the bliss of solitude;\nAnd then my heart with pleasure fills,\nAnd dances with the daffodils.'
+    },
+    {
+      title: 'The Road Not Taken',
+      author: 'Robert Frost',
+      emoji: '🌲',
+      text: 'Two roads diverged in a yellow wood,\nAnd sorry I could not travel both\nAnd be one traveler, long I stood\nAnd looked down one as far as I could\nTo where it bent in the undergrowth;\n\nThen took the other, as just as fair,\nAnd having perhaps the better claim,\nBecause it was grassy and wanted wear;\nThough as for that the passing there\nHad worn them really about the same.\n\nI shall be telling this with a sigh\nSomewhere ages and ages hence:\nTwo roads diverged in a wood, and I —\nI took the one less traveled by,\nAnd that has made all the difference.'
+    },
+    {
+      title: 'Star Light, Star Bright',
+      author: 'Traditional',
+      emoji: '⭐',
+      text: 'Star light, star bright,\nFirst star I see tonight,\nWish I may, wish I might,\nHave this wish I wish tonight.\n\nUp above the world so high,\nLike a diamond in the sky.\nWhen the blazing sun is gone,\nWhen he nothing shines upon,\nThen you show your little light,\nTwinkle, twinkle, all the night.'
+    },
+    {
+      title: 'The Wind',
+      author: 'Robert Louis Stevenson',
+      emoji: '💨',
+      text: 'I saw you toss the kites on high\nAnd blow the birds about the sky;\nAnd all around I heard you pass,\nLike ladies\' skirts across the grass —\nO wind, a-blowing all day long,\nO wind, that sings so loud a song!\n\nI saw the different things you did,\nBut always you yourself you hid.\nI felt you push, I heard you call,\nI could not see yourself at all —\nO wind, a-blowing all day long,\nO wind, that sings so loud a song!'
+    },
+    {
+      title: 'Rain',
+      author: 'Robert Louis Stevenson',
+      emoji: '🌧️',
+      text: 'The rain is raining all around,\nIt falls on field and tree,\nIt rains on the umbrellas here,\nAnd on the ships at sea.\n\nI hear it falling on the leaves,\nAnd making all things bright,\nThe world is full of lovely sounds\nOn this rainy night.\n\nThe puddles splash beneath my feet,\nThe windows stream and glow,\nAnd everything smells fresh and sweet\nWhen raindrops fall below.'
+    },
+    {
+      title: 'The Tyger',
+      author: 'William Blake',
+      emoji: '🐯',
+      text: 'Tyger Tyger, burning bright,\nIn the forests of the night;\nWhat immortal hand or eye,\nCould frame thy fearful symmetry?\n\nIn what distant deeps or skies,\nBurnt the fire of thine eyes?\nOn what wings dare he aspire?\nWhat the hand, dare seize the fire?\n\nAnd what shoulder, & what art,\nCould twist the sinews of thy heart?\nAnd when thy heart began to beat,\nWhat dread hand? & what dread feet?'
+    },
+    {
+      title: 'A Word',
+      author: 'Emily Dickinson',
+      emoji: '✏️',
+      text: 'A word is dead\nWhen it is said,\nSome say.\n\nI say it just\nBegins to live\nThat day.\n\nA thought is small\nWhen first expressed,\nBut grows and grows\nWithin the breast.\n\nSo speak your words\nAnd share your mind,\nFor words are gifts\nFor all mankind.'
+    },
+    {
+      title: 'If —',
+      author: 'Rudyard Kipling',
+      emoji: '🏆',
+      text: 'If you can keep your head when all about you\nAre losing theirs and blaming it on you,\nIf you can trust yourself when all men doubt you,\nBut make allowance for their doubting too;\n\nIf you can dream — and not make dreams your master;\nIf you can think — and not make thoughts your aim;\nIf you can meet with Triumph and Disaster\nAnd treat those two impostors just the same;\n\nIf you can talk with crowds and keep your virtue,\nOr walk with Kings — nor lose the common touch,\nIf neither foes nor loving friends can hurt you,\nIf all men count with you, but none too much;\n\nIf you can fill the unforgiving minute\nWith sixty seconds\' worth of distance run,\nYours is the Earth and everything that\'s in it,\nAnd — which is more — you\'ll be a Man, my son!'
+    }
+  ],
+
+  animals: [
+    { letter:'A', name:'Alligator',   emoji:'🐊', sound:'al · li · ga · tor',   phonicSound:'aah',   color:'#FF6B6B' },
+    { letter:'B', name:'Butterfly',   emoji:'🦋', sound:'but · ter · fly',       phonicSound:'buh',   color:'#9B7DFF' },
+    { letter:'C', name:'Cat',         emoji:'🐱', sound:'cat',                   phonicSound:'kuh',   color:'#F5A623' },
+    { letter:'D', name:'Duck',        emoji:'🦆', sound:'duck',                  phonicSound:'duh',   color:'#FFD166' },
+    { letter:'E', name:'Elephant',    emoji:'🐘', sound:'el · e · phant',        phonicSound:'eh',    color:'#8B9EB7' },
+    { letter:'F', name:'Frog',        emoji:'🐸', sound:'frog',                  phonicSound:'fuh',   color:'#06D6A0' },
+    { letter:'G', name:'Giraffe',     emoji:'🦒', sound:'ji · raffe',            phonicSound:'guh',   color:'#F5A623' },
+    { letter:'H', name:'Horse',       emoji:'🐴', sound:'horse',                 phonicSound:'huh',   color:'#C09060' },
+    { letter:'I', name:'Iguana',      emoji:'🦎', sound:'i · gua · na',          phonicSound:'ih',    color:'#06D6A0' },
+    { letter:'J', name:'Jellyfish',   emoji:'🪼', sound:'jel · ly · fish',       phonicSound:'juh',   color:'#FF9A8B' },
+    { letter:'K', name:'Kangaroo',    emoji:'🦘', sound:'kan · ga · roo',        phonicSound:'kuh',   color:'#C09060' },
+    { letter:'L', name:'Lion',        emoji:'🦁', sound:'li · on',               phonicSound:'luh',   color:'#F5A623' },
+    { letter:'M', name:'Monkey',      emoji:'🐒', sound:'mon · key',             phonicSound:'muh',   color:'#C09060' },
+    { letter:'N', name:'Nightingale', emoji:'🐦', sound:'night · in · gale',     phonicSound:'nuh',   color:'#9B7DFF' },
+    { letter:'O', name:'Ostrich',     emoji:'🦤', sound:'os · trich',            phonicSound:'oh',    color:'#F5A623' },
+    { letter:'P', name:'Panda',       emoji:'🐼', sound:'pan · da',              phonicSound:'puh',   color:'#555555' },
+    { letter:'Q', name:'Quail',       emoji:'🐦‍⬛', sound:'quail',                phonicSound:'kwuh',  color:'#8B6B40' },
+    { letter:'R', name:'Rabbit',      emoji:'🐰', sound:'rab · bit',             phonicSound:'ruh',   color:'#FF9A8B' },
+    { letter:'S', name:'Starfish',    emoji:'⭐', sound:'star · fish',           phonicSound:'sss',   color:'#FFD166' },
+    { letter:'T', name:'Tiger',       emoji:'🐯', sound:'ti · ger',              phonicSound:'tuh',   color:'#FF6B6B' },
+    { letter:'U', name:'Unicorn',     emoji:'🦄', sound:'u · ni · corn',         phonicSound:'uh',    color:'#9B7DFF' },
+    { letter:'V', name:'Vulture',     emoji:'🦅', sound:'vul · ture',            phonicSound:'vuh',   color:'#7A8A90' },
+    { letter:'W', name:'Wolf',        emoji:'🐺', sound:'wolf',                  phonicSound:'wuh',   color:'#7A8A90' },
+    { letter:'X', name:'X-Ray Fish',  emoji:'🐟', sound:'x · ray fish',         phonicSound:'eks',   color:'#48CFAD' },
+    { letter:'Y', name:'Yak',         emoji:'🐃', sound:'yak',                   phonicSound:'yuh',   color:'#8B6B40' },
+    { letter:'Z', name:'Zebra',       emoji:'🦓', sound:'ze · bra',              phonicSound:'zuh',   color:'#333333' }
+  ]
+};
+
+/* ============================================================
+   APP
+   ============================================================ */
+const app = {
+  currentView: 'home',
+  currentStoryIndex: 0,
+  currentFilter: 'all',
+
+  /* ---- Init ---- */
+  init() {
+    this.initTheme();
+    this.initHeader();
+    this.initNav();
+    this.initSearch();
+    this.initScrollProgress();
+    this.initScrollReveal();
+    this.initSparkle();
+    this.renderStories();
+    this.renderPoems();
+    this.renderPhonics();
+    this.handleRoute();
+
+    // Poem modal close
+    document.getElementById('poem-modal-close').addEventListener('click', () => this.closePoem());
+    document.getElementById('poem-modal-overlay').addEventListener('click', e => {
+      if (e.target === e.currentTarget) this.closePoem();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') this.closePoem(); });
+
+    window.addEventListener('popstate', () => this.handleRoute());
+    window.addEventListener('load', () => {
+      document.getElementById('preloader').classList.add('done');
+    });
+    // Fallback: hide preloader after 2.5s
+    setTimeout(() => {
+      document.getElementById('preloader').classList.add('done');
+    }, 2500);
+  },
+
+  /* ---- Navigation / Routing ---- */
+  go(viewId, storyId = null) {
+    const updateDOM = () => {
+      // Close mobile menu
+      document.getElementById('mobile-nav').classList.remove('show');
+      document.getElementById('hamburger').classList.remove('open');
+      document.getElementById('hamburger').setAttribute('aria-expanded','false');
+
+      // Hide all views
+      document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+
+      const target = document.getElementById(`view-${viewId}`);
+      if (!target) return;
+      target.classList.add('active');
+      this.currentView = viewId;
+
+      // Update nav links
+      document.querySelectorAll('.nav-link').forEach(l => {
+        l.classList.toggle('active', l.dataset.view === viewId);
+      });
+
+      // URL
+      const url = storyId ? `#story/${storyId}` : `#${viewId}`;
+      if (window.location.hash !== url) history.pushState(null, '', url);
+
+      // Story detail
+      if (viewId === 'story-detail' && storyId) this.renderStoryDetail(storyId);
+
+      window.scrollTo({ top: 0 });
+
+      // Re-trigger scroll reveal
+      setTimeout(() => this.checkReveal(), 100);
+    };
+
+    if (document.startViewTransition) {
+      document.startViewTransition(updateDOM);
+    } else {
+      updateDOM();
+    }
+  },
+
+  handleRoute() {
+    const hash = window.location.hash || '#home';
+    if (hash.startsWith('#story/')) {
+      const id = hash.split('/')[1];
+      this.go('story-detail', id);
+    } else {
+      const view = hash.replace('#', '') || 'home';
+      this.go(view);
+    }
+  },
+
+  /* ---- Theme ---- */
+  initTheme() {
+    const btn = document.getElementById('theme-toggle');
+    const saved = localStorage.getItem('wordly-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', saved);
+    btn.textContent = saved === 'dark' ? '☀️' : '🌙';
+    btn.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('wordly-theme', next);
+      btn.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+  },
+
+  /* ---- Sticky header ---- */
+  initHeader() {
+    const hdr = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      hdr.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+  },
+
+  /* ---- Navigation ---- */
+  initNav() {
+    // Logo
+    document.getElementById('logo-btn').addEventListener('click', () => this.go('home'));
+    document.getElementById('logo-btn').addEventListener('keypress', e => {
+      if (e.key === 'Enter') this.go('home');
+    });
+
+    // All nav links (desktop + mobile)
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        this.go(link.dataset.view);
+      });
+    });
+
+    // Hamburger
+    const ham = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    ham.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('show');
+      ham.classList.toggle('open', isOpen);
+      ham.setAttribute('aria-expanded', isOpen.toString());
+    });
+
+    // Story nav prev/next
+    document.getElementById('prev-story').addEventListener('click', () => this.navigateStory(-1));
+    document.getElementById('next-story').addEventListener('click', () => this.navigateStory(1));
+  },
+
+  /* ---- Search & Filters ---- */
+  initSearch() {
+    document.getElementById('story-search').addEventListener('input', e => {
+      this.renderStories(e.target.value.toLowerCase());
+    });
+    document.getElementById('poem-search').addEventListener('input', e => {
+      this.renderPoems(e.target.value.toLowerCase());
+    });
+    document.getElementById('animal-search').addEventListener('input', e => {
+      this.renderPhonics(e.target.value.toLowerCase());
+    });
+
+    // Filter chips
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        this.currentFilter = chip.dataset.filter;
+        this.renderStories(document.getElementById('story-search').value.toLowerCase());
+      });
+    });
+  },
+
+  /* ---- Scroll Progress ---- */
+  initScrollProgress() {
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (window.scrollY / max * 100) + '%';
+    }, { passive: true });
+  },
+
+  /* ---- Scroll Reveal ---- */
+  initScrollReveal() {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    this._revealObs = obs;
+  },
+
+  checkReveal() {
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+      if (this._revealObs) this._revealObs.observe(el);
+    });
+  },
+
+  /* ---- Sparkle Cursor ---- */
+  initSparkle() {
+    const sparks = ['⭐','✨','🌟','💫','🎈','🌸'];
+    let last = 0;
+    document.addEventListener('mousemove', e => {
+      const now = Date.now();
+      if (now - last < 120) return;
+      last = now;
+      const el = document.createElement('div');
+      el.className = 'sparkle';
+      el.textContent = sparks[Math.floor(Math.random() * sparks.length)];
+      el.style.cssText = `left:${e.clientX - 8}px;top:${e.clientY - 8}px;`;
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 600);
+    });
+  },
+
+  /* ---- Render Stories ---- */
+  renderStories(term = '') {
+    const grid = document.getElementById('stories-grid');
+    const filtered = DATA.stories.filter(s =>
+      (this.currentFilter === 'all' || s.category === this.currentFilter) &&
+      (s.title.toLowerCase().includes(term) || s.description.toLowerCase().includes(term))
+    );
+
+    if (!filtered.length) {
+      grid.innerHTML = `<div class="empty-state">
+        <div class="empty-state-emoji">🔍</div>
+        <p class="empty-state-msg">No stories found for "<strong>${this.escHtml(term)}</strong>".<br>Try a different search!</p>
+      </div>`;
+      return;
+    }
+
+    grid.innerHTML = filtered.map(s => `
+      <article class="story-card" onclick="app.go('story-detail','${s.id}')"
+        role="listitem" tabindex="0" aria-label="Read ${this.escHtml(s.title)}"
+        onkeypress="if(event.key==='Enter')app.go('story-detail','${s.id}')">
+        <div class="story-card-thumb" style="background:${s.thumbColor || 'var(--grad-sky)'}">
+          ${s.image ? `<img src="${s.image}" alt="${this.escHtml(s.title)}" onerror="this.style.display='none'">` : `<div class="story-thumb-fallback">${s.emoji}</div>`}
+          <div class="story-card-badge" aria-hidden="true">${s.emoji}</div>
+          <div class="story-cat-tag">${this.escHtml(s.category)}</div>
+        </div>
+        <div class="story-card-body">
+          <div class="story-card-title">${this.escHtml(s.title)}</div>
+          <div class="story-card-author">by ${this.escHtml(s.author)}</div>
+          <p class="story-card-desc">${this.escHtml(s.description)}</p>
+          <div class="story-card-footer">
+            <span class="read-link">Read Story <span aria-hidden="true">→</span></span>
+          </div>
+        </div>
+      </article>
+    `).join('');
+  },
+
+  /* ---- Render Poems ---- */
+  renderPoems(term = '') {
+    const grid = document.getElementById('poems-grid');
+    const filtered = DATA.poems.filter(p =>
+      p.title.toLowerCase().includes(term) || p.author.toLowerCase().includes(term)
+    );
+
+    if (!filtered.length) {
+      grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
+        <div class="empty-state-emoji">🔍</div>
+        <p class="empty-state-msg">No poems found for "<strong>${this.escHtml(term)}</strong>".</p>
+      </div>`;
+      return;
+    }
+
+    grid.innerHTML = filtered.map((p, i) => {
+      const idx = DATA.poems.indexOf(p);
+      const lineCount = p.text.split('\n').filter(l => l.trim()).length;
+      return `
+      <article class="poem-card" role="listitem" onclick="app.openPoem(${idx})" tabindex="0"
+        onkeypress="if(event.key==='Enter')app.openPoem(${idx})" aria-label="Read ${this.escHtml(p.title)} by ${this.escHtml(p.author)}">
+        <div class="poem-card-inner">
+          <div class="poem-emoji-wrap" aria-hidden="true">${p.emoji}</div>
+          <div class="poem-title">${this.escHtml(p.title)}</div>
+          <div class="poem-author-label">${this.escHtml(p.author)}</div>
+          <div class="poem-divider"></div>
+          <div class="poem-text poem-text-fade">${this.escHtml(p.text)}</div>
+        </div>
+        <div class="poem-card-footer">
+          <div class="poem-read-btn">Read Full Poem <span class="btn-arrow">→</span></div>
+          <div class="poem-line-count">${lineCount} lines</div>
+        </div>
+      </article>`;
+    }).join('');
+  },
+
+  /* ---- Open Poem Modal ---- */
+  openPoem(index) {
+    const p = DATA.poems[index];
+    if (!p) return;
+    const colors = [
+      'linear-gradient(150deg,#1e1060,#4A2FC0,#7B5EE8)',
+      'linear-gradient(150deg,#7c4800,#c47a00,#F5A623)',
+      'linear-gradient(150deg,#085c47,#0a9e78,#06D6A0)',
+      'linear-gradient(150deg,#b01f1f,#e04040,#FF8080)',
+      'linear-gradient(150deg,#1c1c40,#2D2D7A,#5555CC)',
+      'linear-gradient(150deg,#5a2d00,#a05000,#e07818)'
+    ];
+    const bg = colors[index % 6];
+    const header = document.getElementById('poem-modal-header');
+    header.style.background = bg;
+    document.getElementById('poem-modal-emoji').textContent = p.emoji;
+    document.getElementById('poem-modal-title').textContent = p.title;
+    document.getElementById('poem-modal-author').textContent = p.author;
+    document.getElementById('poem-modal-text').textContent = p.text;
+    document.getElementById('poem-modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  },
+
+  closePoem() {
+    document.getElementById('poem-modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  },
+
+  /* ---- Render Phonics ---- */
+  renderPhonics(term = '') {
+    const grid = document.getElementById('phonics-grid');
+    const filtered = DATA.animals.filter(a =>
+      a.name.toLowerCase().includes(term) || a.letter.toLowerCase().includes(term)
+    );
+
+    if (!filtered.length) {
+      grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
+        <div class="empty-state-emoji">🔍</div>
+        <p class="empty-state-msg">No animals found!</p>
+      </div>`;
+      return;
+    }
+
+    grid.innerHTML = filtered.map((a, i) => {
+      const idx = DATA.animals.indexOf(a);
+      return `
+      <div class="animal-card" role="button" tabindex="0"
+        aria-label="Tap to hear: ${a.letter} is for ${a.name}"
+        onclick="app.speakLetter(${idx}, this)"
+        onkeypress="if(event.key==='Enter')app.speakLetter(${idx},this)"
+        style="--ac:${a.color}">
+        <div class="animal-letter" aria-hidden="true">${a.letter}</div>
+        <div class="animal-speaker-badge" aria-hidden="true">🔊</div>
+        <div class="animal-sound-ring"></div>
+        <div class="animal-img-wrap">
+          <div class="animal-emoji-fallback" aria-hidden="true">${a.emoji}</div>
+        </div>
+        <div class="animal-name">${this.escHtml(a.name)}</div>
+        <div class="animal-syllables">${this.escHtml(a.sound)}</div>
+        <div class="animal-phonic-badge">${a.phonicSound}</div>
+      </div>`;
+    }).join('');
+  },
+
+  /* ---- Pick best female kids voice ---- */
+  getKidsVoice() {
+    const voices = window.speechSynthesis.getVoices();
+    if (!voices.length) return null;
+
+    // Priority list: warm, clear, female English voices across platforms
+    const preferredNames = [
+      'Samantha',           // macOS / iOS US English female
+      'Karen',              // macOS Australian
+      'Moira',              // macOS Irish
+      'Tessa',              // macOS South African
+      'Veena',              // macOS Indian
+      'Fiona',              // macOS Scottish
+      'Google UK English Female',
+      'Google US English',  // Chrome — usually female variant
+      'Microsoft Zira',     // Windows female
+      'Microsoft Hazel',    // Windows UK female
+      'Microsoft Susan',
+      'en-GB-Standard-A',
+      'en-US-Standard-C',
+    ];
+
+    for (const name of preferredNames) {
+      const v = voices.find(v => v.name.includes(name));
+      if (v) return v;
+    }
+
+    // Fallback: any English voice that looks female
+    const femaleFallback = voices.find(v =>
+      v.lang.startsWith('en') &&
+      /female|woman|girl/i.test(v.name)
+    );
+    if (femaleFallback) return femaleFallback;
+
+    // Last resort: any English voice
+    return voices.find(v => v.lang.startsWith('en')) || voices[0] || null;
+  },
+
+  /* ---- Speak Letter ---- */
+  speakLetter(index, el) {
+    if (!window.speechSynthesis) return;
+    const a = DATA.animals[index];
+    if (!a) return;
+
+    // Cancel any in-progress speech
+    window.speechSynthesis.cancel();
+
+    // Visual feedback
+    document.querySelectorAll('.animal-card.speaking').forEach(c => c.classList.remove('speaking'));
+    if (el) el.classList.add('speaking');
+
+    const doSpeak = () => {
+      const voice = this.getKidsVoice();
+
+      const say = (text, delay = 0, rate = 0.92, pitch = 1.1) => new Promise(resolve => {
+        setTimeout(() => {
+          const utt = new SpeechSynthesisUtterance(text);
+          if (voice) utt.voice = voice;
+          utt.lang   = 'en-US';
+          utt.rate   = rate;
+          utt.pitch  = pitch;
+          utt.volume = 1;
+          utt.onend  = resolve;
+          utt.onerror = resolve;
+          window.speechSynthesis.speak(utt);
+        }, delay);
+      });
+
+      (async () => {
+        await say(a.letter,  0,   0.85, 1.15);  // "A" — slightly slower for clarity
+        await say(`${a.letter} is for ${a.name}`, 200, 0.92, 1.1);   // "A is for Alligator"
+        await say(`${a.letter} says ${a.phonicSound}`, 200, 0.90, 1.1); // "A says aah"
+        if (el) el.classList.remove('speaking');
+      })();
+    };
+
+    // Voices may not be loaded yet on first call — wait if needed
+    const voices = window.speechSynthesis.getVoices();
+    if (voices.length) {
+      doSpeak();
+    } else {
+      window.speechSynthesis.addEventListener('voiceschanged', doSpeak, { once: true });
+    }
+  },
+
+  /* ---- Render Story Detail ---- */
+  renderStoryDetail(id) {
+    const story = DATA.stories.find(s => s.id === id);
+    if (!story) { this.go('stories'); return; }
+
+    this.currentStoryIndex = DATA.stories.indexOf(story);
+    document.getElementById('detail-emoji').textContent = story.emoji;
+    document.getElementById('detail-title').textContent = story.title;
+    document.getElementById('detail-author').textContent = `by ${story.author}`;
+    document.getElementById('detail-content').innerHTML = story.content +
+      (story.moral ? `<p style="margin-top:1.5rem;padding:1rem 1.2rem;background:var(--surface-2);border-radius:var(--r-md);border-left:4px solid var(--gold);font-weight:700;color:var(--sky-mid)">
+        💡 Moral of the Story: <em style="color:var(--text-body)">${story.moral}</em>
+      </p>` : '');
+
+    const prev = document.getElementById('prev-story');
+    const next = document.getElementById('next-story');
+    prev.style.visibility = this.currentStoryIndex > 0 ? 'visible' : 'hidden';
+    next.style.visibility = this.currentStoryIndex < DATA.stories.length - 1 ? 'visible' : 'hidden';
+
+    document.title = `${story.title} — Wordly`;
+  },
+
+  /* ---- Navigate Stories ---- */
+  navigateStory(dir) {
+    const newIndex = this.currentStoryIndex + dir;
+    if (newIndex >= 0 && newIndex < DATA.stories.length) {
+      this.go('story-detail', DATA.stories[newIndex].id);
+    }
+  },
+
+  /* ---- Utility ---- */
+  escHtml(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+};
+
+/* Boot */
+document.addEventListener('DOMContentLoaded', () => app.init());
+</script>
+</body>
+</html>
