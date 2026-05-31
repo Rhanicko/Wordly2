@@ -1373,6 +1373,7 @@ main { position: relative; z-index: 1; }
   padding: 1.4rem .8rem 1rem;
   text-align: center;
   cursor: pointer;
+  touch-action: manipulation;
   transition: all var(--dur-fast) var(--ease-bounce);
   position: relative;
   overflow: hidden;
@@ -2817,44 +2818,49 @@ const app = {
     const a = DATA.animals[index];
     if (!a) return;
 
-    // Cancel any in-progress speech
     window.speechSynthesis.cancel();
 
-    // Visual feedback
     document.querySelectorAll('.animal-card.speaking').forEach(c => c.classList.remove('speaking'));
     if (el) el.classList.add('speaking');
 
     const doSpeak = () => {
       const voice = this.getKidsVoice();
 
-      const say = (text, delay = 0, rate = 0.92, pitch = 1.1) => new Promise(resolve => {
-        setTimeout(() => {
-          const utt = new SpeechSynthesisUtterance(text);
-          if (voice) utt.voice = voice;
-          utt.lang   = 'en-US';
-          utt.rate   = rate;
-          utt.pitch  = pitch;
-          utt.volume = 1;
-          utt.onend  = resolve;
-          utt.onerror = resolve;
-          window.speechSynthesis.speak(utt);
-        }, delay);
-      });
+      const makeUtt = (text, rate, pitch) => {
+        const utt = new SpeechSynthesisUtterance(text);
+        if (voice) utt.voice = voice;
+        utt.lang   = 'en-US';
+        utt.rate   = rate;
+        utt.pitch  = pitch;
+        utt.volume = 1;
+        return utt;
+      };
 
-      (async () => {
-        await say(a.letter,  0,   0.85, 1.15);  // "A" — slightly slower for clarity
-        await say(`${a.letter} is for ${a.name}`, 200, 0.92, 1.1);   // "A is for Alligator"
-        await say(`${a.letter} says ${a.phonicSound}`, 200, 0.90, 1.1); // "A says aah"
-        if (el) el.classList.remove('speaking');
-      })();
+      const utt1 = makeUtt(a.letter, 0.85, 1.15);
+      const utt2 = makeUtt(`${a.letter} is for ${a.name}`, 0.92, 1.1);
+      const utt3 = makeUtt(`${a.letter} says ${a.phonicSound}`, 0.90, 1.1);
+
+      const done = () => { if (el) el.classList.remove('speaking'); };
+      utt1.onerror = utt2.onerror = utt3.onerror = done;
+      utt3.onend = done;
+
+      // Queue all utterances synchronously — keeps us inside the user-gesture
+      // context on iOS Safari, which blocks speak() called from setTimeout/async
+      window.speechSynthesis.speak(utt1);
+      window.speechSynthesis.speak(utt2);
+      window.speechSynthesis.speak(utt3);
     };
 
-    // Voices may not be loaded yet on first call — wait if needed
+    // iOS: getVoices() returns [] and voiceschanged may never fire.
+    // Use a 250 ms fallback so speech always starts on mobile.
     const voices = window.speechSynthesis.getVoices();
     if (voices.length) {
       doSpeak();
     } else {
-      window.speechSynthesis.addEventListener('voiceschanged', doSpeak, { once: true });
+      let fired = false;
+      const tryOnce = () => { if (!fired) { fired = true; doSpeak(); } };
+      window.speechSynthesis.addEventListener('voiceschanged', tryOnce, { once: true });
+      setTimeout(tryOnce, 250);
     }
   },
 
